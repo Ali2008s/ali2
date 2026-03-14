@@ -9,7 +9,6 @@
 /ios/Flutter/Generated.xcconfig
 /ios/Flutter/flutter_export_environment.sh
 /ios/ServiceDefinitions.json
-/android/app/src/main/res/values/strings.xml
 /android/key.properties
 *.lock
 *.log
