@@ -1,0 +1,27 @@
+# Flutter-related
+/build/
+/.dart_tool/
+/.packages
+/.pub-cache/
+/.pub/
+/ios/.generated/
+/ios/Flutter/Ephemeral/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/ServiceDefinitions.json
+/android/app/src/main/res/values/strings.xml
+/android/key.properties
+*.lock
+*.log
+
+# Laravel-related
+/node_modules
+/public/storage
+/storage/*.key
+/vendor
+.env
+
+# General
+.DS_Store
+.idea/
+.vscode/
