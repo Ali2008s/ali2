@@ -26,15 +26,58 @@ class EmbeddedPlayerHelper {
         startAt: startAt,
         mute: mute,
       );
+    } else if (url.isDirectVideoLink) {
+      return getVideoJsHTML(
+        url,
+        autoplay: autoplay,
+        startAt: startAt,
+        mute: mute,
+      );
     }
 
-    // fallback → Direct MP4 / direct video link
-    return getVideoJsHTML(
+    // fallback → generic iframe for third-party embeds
+    return getGenericIframeHTML(
       url,
       autoplay: autoplay,
       startAt: startAt,
       mute: mute,
     );
+  }
+
+  /// ======================================================
+  /// GENERIC IFRAME
+  /// ======================================================
+  static String getGenericIframeHTML(
+    String url, {
+    required bool autoplay,
+    Duration? startAt,
+    required bool mute,
+  }) {
+    return """
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    body { margin: 0; padding: 0; background-color: #000; overflow: hidden; width: 100vw; height: 100vh; }
+    iframe { width: 100%; height: 100%; border: none; }
+  </style>
+</head>
+<body>
+  <iframe id="generic-player" src="\$url" allowfullscreen="true" allow="autoplay; fullscreen" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+  
+  <script>
+    // Simulate playing event immediately so the native player knows we "started"
+    // and hides the loading spinner.
+    window.onload = function() {
+      if (window.flutter_inappwebview) {
+        window.flutter_inappwebview.callHandler('PlayerEvents', "playing");
+      }
+    };
+  </script>
+</body>
+</html>
+""";
   }
 
   /// ======================================================
