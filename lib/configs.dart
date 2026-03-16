@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:country_picker/country_picker.dart';
 import 'package:streamit_laravel/generated/assets.dart';
 
-const APP_NAME = 'Streamit';
+const APP_NAME = 'عالمنا';
 const APP_MINI_LOGO_URL = Assets.assetsAppMiniLogo;
 const APP_LOGO_URL = Assets.assetsAppLoader;
 const APP_FONT_FAMILY = 'Roboto';
