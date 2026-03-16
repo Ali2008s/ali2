@@ -694,11 +694,14 @@ DateTime? _parseFlexibleDate(String input) {
 }
 
 Future<void> secureScreen() async {
+  // Screenshot protection disabled by user request
+  /*
   // Screenshot block
   await ScreenProtector.preventScreenshotOn();
 
   // Screen recording / data leakage block
   await ScreenProtector.protectDataLeakageOn();
+  */
 }
 
 Future<void> removeSecureScreen() async {

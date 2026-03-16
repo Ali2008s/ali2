@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -95,17 +94,9 @@ class SplashScreenController extends BaseListController<WalkthroughModel> {
     });
 
     try {
-      if(kReleaseMode) {
-        if(isScreenShotAllowed) {
-          await removeSecureScreen();
-        } else {
-          await secureScreen();
-        }
-      } else {
-        await removeSecureScreen();
-      }
+      await removeSecureScreen();
     } catch (e) {
-      log('getThemeFromLocal from cache E: $e');
+      log('removeSecureScreen E: $e');
     }
   }
 
