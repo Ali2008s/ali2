@@ -79,10 +79,17 @@ extension StrExt on String {
   }
 
   String get getURLFromIFrame {
-    if (!this.startsWith("<iframe")) return this;
-
-    final match = RegExp("src=['\"]([^'\"]+)['\"]").firstMatch(this);
-    return match?.group(1) ?? this;
+    String url = this;
+    if (this.startsWith("<iframe")) {
+      final match = RegExp("src=['\"]([^'\"]+)['\"]").firstMatch(this);
+      url = match?.group(1) ?? this;
+    }
+    
+    if (url.startsWith("//")) {
+      return "https:$url";
+    }
+    
+    return url;
   }
 
   bool get isYoutubeLink {

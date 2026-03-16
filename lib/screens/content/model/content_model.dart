@@ -629,7 +629,7 @@ class DownloadQualities {
   factory DownloadQualities.fromJson(Map<String, dynamic> json) {
     return DownloadQualities(
       id: json['id'] is int ? json['id'] : -1,
-      urlType: json['url_type'] is String ? json['url_type'] : "",
+      urlType: json['url_type'] is String ? json['url_type'] : (json['type'] is String ? json['type'] : ""),
       url: json['url'] is String ? json['url'] : "",
       quality: json['quality'] is String ? json['quality'] : "",
     );
@@ -666,7 +666,7 @@ class VideoData {
   factory VideoData.fromTrailerJson(Map<String, dynamic> json) {
     return VideoData(
       id: json['id'] is int ? json['id'] : -1,
-      urlType: json['url_type'] is String ? json['url_type'] : "",
+      urlType: json['url_type'] is String ? json['url_type'] : (json['type'] is String ? json['type'] : ""),
       url: json['url'] is String ? json['url'] : "",
       title: json['title'] is String ? json['title'] : "",
       posterImage: json['poster_image'] is String ? json['poster_image'] : "",
@@ -688,7 +688,7 @@ class VideoData {
   factory VideoData.fromQualityJson(Map<String, dynamic> json) {
     return VideoData(
       id: json['id'] is int ? json['id'] : -1,
-      urlType: json['url_type'] is String ? json['url_type'] : "",
+      urlType: json['url_type'] is String ? json['url_type'] : (json['type'] is String ? json['type'] : ""),
       url: json['url'] is String ? json['url'] : "",
       quality: json['quality'] is String ? json['quality'] : "",
       posterImage: json['poster_image'] is String ? json['poster_image'] : "",
